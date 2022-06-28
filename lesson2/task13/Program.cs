@@ -11,7 +11,8 @@ int findThirdNumber(int arg)
 {
     if (arg < 0) arg *= -1; //For working with negative numbers
     if (arg / 100 == 0) return -1; //if third number does not exist return -1
-    return (arg - (arg / 1000) * 1000) / 100;
+    int lengthNumber = arg.ToString().Length;
+    return (arg / Convert.ToInt32(Math.Pow(10, lengthNumber - 3))) % 10;
 };
 
 Console.Write("Enter your number: ");
